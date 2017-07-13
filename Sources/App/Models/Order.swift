@@ -11,6 +11,7 @@ import HTTP
 
 struct Order {
     
+    // 用户传过来的 json 数据
     let originJSON: JSON
     
     init(with json: JSON) {
@@ -18,8 +19,31 @@ struct Order {
     }
     
     func comply() -> String {
-        let result = "this is what I have done"
-        return result
+        
+        let jsonArray = originJSON.wrapped
+        
+        switch jsonArray {
+        case .object(let array):
+            let properties = array.map({ (name: String, type: StructuredData) -> String in
+                return "@property (nonatomic, strong) " + type.description + " *" + name
+            }).reduce("", { (resultStr, str) -> String in
+                return resultStr + str + ";\n"
+            })
+            
+            let lazygetters = array.map({ (name: String, type: StructuredData) -> String in
+                return "- (\(type.description) *)\(name) { \n if (!_\(name)){\n\t_\(name)=[\(type.description) alloc] init];\n }\n\treturn _\(name);\n}"
+            }).reduce("", { (resultStr, str) -> String in
+                return resultStr + str + "\n"
+            })
+            
+            print(properties + lazygetters)
+        default:
+            break
+        }
+        
+        return ""
     }
     
 }
+
+

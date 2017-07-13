@@ -9,15 +9,17 @@ extension Droplet {
             return req.description
         }
         
+        get("/") { req in
+            return try self.view.make("order", [
+                    "para": "hello"
+                ])
+        }
+        
         // Comply with the order that customer wants
         post("v1/order") { request in
             guard let json = request.json else {
                 throw Abort(.badRequest)
             }
-            
-//            guard let bar = request.json?["foo"]?.string else {
-//                throw Abort(.badRequest)
-//            }
             return Order(with: json).comply()
         }
         
