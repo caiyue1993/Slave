@@ -36,7 +36,7 @@ struct Order {
                 return resultStr + str + "\n"
             })
             
-            print(properties + lazygetters)
+            return properties + lazygetters
         default:
             break
         }

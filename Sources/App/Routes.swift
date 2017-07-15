@@ -10,20 +10,34 @@ extension Droplet {
         }
         
         get("/") { req in
-            return try self.view.make("order", [
-                    "para": "hello"
+            return try self.view.make("base", [
+                    "name": "hello"
                 ])
         }
         
         // Comply with the order that customer wants
         post("v1/order") { request in
-            guard let json = request.json else {
-                throw Abort(.badRequest)
-            }
-            return Order(with: json).comply()
+            return try index(request: request)
         }
         
-//        try resource("posts", PostController.self)
-//        try resource("v1/order", OrderController.self)
+        func index(request: Request) throws -> ResponseRepresentable {
+            func string(forKey key: String) -> String? {
+                //if let string = request.query?[key]?.string {
+                if let string = request.data[key]?.string {
+                    return string.isEmpty ? nil : string
+                } else {
+                    return nil
+                }
+            }
+            
+            let variableName = string(forKey: "variableName") ?? ""
+            let variableType = string(forKey: "variableType") ?? ""
+            var json = JSON()
+            try json.set(variableName, variableType)
+            
+            return Order(with: json).comply()
+            
+        }
+        
     }
 }
