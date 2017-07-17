@@ -27,7 +27,8 @@
         <script src="/js/bootstrap.min.js"></script>
         
         <!-- Form -->
-        <form class="form-inline" action="/v1/order" method="post">
+        <form id="orderForm" class="form-inline" action="/v1/order" method="post">
+            <div id="customId">
             <div class="form-group">
                 <label for="inputVaribleName">Name</label>
                 <input type="text" name="variableName" class="form-control" placeholder="e.g.,titleLabel"/>
@@ -42,10 +43,28 @@
                     <option value="UIControl">UIControl</option>
                 </select>
             </div>
+            </div>
+            
             <div class="form-group">
-            <input class="button-primary u-full-width" type="submit" value="Generate"/>
+            <input class="button-primary u-full-width" type="button" value="+" onClick="doAddFunction();"/>
+            </div>
+            
+            <div class="form-group">
+                <input class="button-primary u-full-width" type="button" value="Generate" onClick="sendPost();"/>
             </div>
         </form>
+        
+        <script>
+            function doAddFunction() {
+                var div = document.getElementById("customId");
+                var newDiv = div.cloneNode(true)
+                document.getElementById("orderForm").appendChild(newDiv);
+            }
+        
+            function sendPost() {
+                
+            }
+        </script>
         
         <!-- <input id="clickMe" type="button" value="clickMe" onClick="doFunction();"/>
         <script>
