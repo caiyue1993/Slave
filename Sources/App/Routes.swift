@@ -24,7 +24,7 @@ extension Droplet {
             if let json = request.json {
                 return Order(with: json).comply()
             } else {
-                return Abort(.badRequest)
+                return ""
             }
         }
         
