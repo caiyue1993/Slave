@@ -21,22 +21,11 @@ extension Droplet {
         }
         
         func index(request: Request) throws -> ResponseRepresentable {
-            func string(forKey key: String) -> String? {
-                //if let string = request.query?[key]?.string {
-                if let string = request.data[key]?.string {
-                    return string.isEmpty ? nil : string
-                } else {
-                    return nil
-                }
+            if let json = request.json {
+                return Order(with: json).comply()
+            } else {
+                return Abort(.badRequest)
             }
-            
-            let variableName = string(forKey: "variableName") ?? ""
-            let variableType = string(forKey: "variableType") ?? ""
-            var json = JSON()
-            try json.set(variableName, variableType)
-            
-            return Order(with: json).comply()
-            
         }
         
     }
