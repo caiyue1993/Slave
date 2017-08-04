@@ -1,0 +1,28 @@
+h1 {
+    text-align: center;
+    padding-top: 100px;
+}
+
+p.lead {
+    text-align: center;
+    padding-top: 20px;
+}
+
+#orderForm {
+    text-align: center;
+    padding-top: 30px;
+}
+
+#customDiv {
+    padding: 10px 30px 10px 30px;
+}
+
+#btnDiv {
+    padding-top: 30px;
+    padding-bottom: 80px;
+}
+
+textarea {
+    width: 45%;
+    height: 300px;
+}
