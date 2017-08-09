@@ -28,7 +28,8 @@ function prepareSendPost() {
         xhr.send(JSON.stringify(data));
         xhr.onreadystatechange = function() {
             if (xhr.readyState == 4 && xhr.status==200){
-                alert(xhr.responseText);
+                var textarea = document.getElementById("resultArea");
+                textarea.value = xhr.responseText
             }
         }
     }

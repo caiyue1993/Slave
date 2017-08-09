@@ -19,6 +19,7 @@
         <script src="/js/slavefunction.js"></script>
         <!-- Form -->
         <form id="orderForm" class="form-inline" action="/v1/order" method="post">
+            
             <div id="userDiv">
                 <div id="customDiv">
                     <div class="form-group">
@@ -44,10 +45,17 @@
                 <input id="postButton" class="button-primary u-full-width" type="button" value="Generate"/>
             </div>
             
-            <textarea>
-                
-            </textarea>
-            
+            <div id="outputDiv">
+                <div id="outputOption">
+                    <label>Output</label>
+                    <select class="form-control selectOutputLan" name="outputLan">
+                        <option value="UILabel">Objective-C</option>
+                        <option value="UILabel">Swift</option>
+                    </select>
+                </div>
+                <textarea id="resultArea">
+                </textarea>
+            </div>
         </form>
         
     </body>

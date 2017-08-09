@@ -22,6 +22,10 @@ p.lead {
     padding-bottom: 80px;
 }
 
+#outputOption {
+    padding-bottom: 30px;
+}
+
 textarea {
     width: 45%;
     height: 300px;
