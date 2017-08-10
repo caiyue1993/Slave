@@ -15,12 +15,17 @@ function prepareSendPost() {
     var postButton = document.getElementById("postButton");
     var toPostForm = postButton.form;
     postButton.onclick = function() {
+        var outputLan = document.getElementsByClassName("selectOutputLan");
         var variableNames = document.getElementsByClassName("inputVariableName");
         var variableTypes = document.getElementsByClassName("selectVariableType");
         var data = {};
+        var variableCombine = {};
+        data["outputLan"] = outputLan[0].value;
         for (var i=0; i < variableNames.length; i++) {
-            data[variableNames[i].value] = variableTypes[i].value;
+            variableCombine[variableNames[i].value] = variableTypes[i].value
         }
+        
+        data["variableCombines"] = variableCombine
         
         var xhr = new XMLHttpRequest();
         xhr.open(toPostForm.method, toPostForm.action, true)

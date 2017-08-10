@@ -49,8 +49,8 @@
                 <div id="outputOption">
                     <label>Output</label>
                     <select class="form-control selectOutputLan" name="outputLan">
-                        <option value="UILabel">Objective-C</option>
-                        <option value="UILabel">Swift</option>
+                        <option value="Objective-C">Objective-C</option>
+                        <option value="Swift">Swift</option>
                     </select>
                 </div>
                 <textarea id="resultArea">
