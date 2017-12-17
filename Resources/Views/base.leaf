@@ -10,6 +10,7 @@
     </head>
     
     <body>
+        <div class="main container">
         <h1>Slave</h1>
         <p class="lead">Don't repeat yourself. Let Slave handle this kind of stuff.</p>
         
@@ -57,6 +58,14 @@
                 </textarea>
             </div>
         </form>
-        
+        </div>
+
+        <div class="footer container">
+            <div class="row">
+                <div class="u-full-width">
+                <div>Copyright © 2017 <a href="https://twitter.com/caiyue5">@caiyue5</a>. Powered by <a href="https://vapor.codes">Vapor</a> & <a href="https://github.com/caiyue1993/slave">Slave</a>. File a <a href="https://github.com/caiyue1993/slave/issues/new">new issue</a> if you have any problem.</div>
+                </div>
+            </div>
+        </div>
     </body>
 </html>
