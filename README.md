@@ -7,7 +7,7 @@ Don't repeat yourself in code writings. Slave has integrated templates(Swift/Obj
 Custom templates will be supported in the near future. Or you can help me to reach this target by pulling requests. 
 
 ## Try it out
-Now we only get a web version: http://slave-yo.herokuapp.com/ 
+We get a web version for now: http://slave-yo.herokuapp.com/ 
 
 ## How to run yourself
 
