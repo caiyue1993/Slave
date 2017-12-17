@@ -38,17 +38,16 @@ struct Order {
                     })
                     
                     let lazygetters = variableCombines.map({ (name: String, type: StructuredData) -> String in
-                        return "- (\(type.description) *)\(name) { \n if (!_\(name)){\n\t_\(name)=[\(type.description) alloc] init];\n }\n\treturn _\(name);\n}"
+                        return "- (\(type.description) *)\(name) { \n if (!_\(name)) {\n\t_\(name) = [[\(type.description) alloc] init];\n }\n\treturn _\(name);\n}"
                     }).reduce("", { (resultStr, str) -> String in
                         return resultStr + str + "\n"
                     })
                     
                     return properties + lazygetters
-                    
                 }
                 if outputType == "Swift" {
                     let lazygetters = variableCombines.map({ (name: String, type: StructuredData) -> String in
-                        return "lazy var " + name + ": \(type.description) = {\n let token = \(type.description)() \n return token\n }()"
+                        return "lazy var " + name + ": \(type.description) = {\n let <#T##token#> = \(type.description)() \n return <#T##token#>\n }()"
                     }).reduce("", { (resultStr, str) -> String in
                         return resultStr + str + "\n"
                     })
